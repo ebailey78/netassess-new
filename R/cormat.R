@@ -1,21 +1,11 @@
 cormat <- function() 
 {
     options(warn = -1)
-    require(maps)
-    require(sp)
-    require(rgdal)
-    require(maptools)
-    require(tcltk)
-    require(tkrplot)
-    require(fgui)
-    require(sqldf)
-    require(Hmisc)
-    require(ellipse)
-    require(plotrix)
+
     pb <- winProgressBar(title = "Correlation Matrix Tool Starting Up", 
         min = 0, max = 1, width = 500, label = "Loading data. Please wait")
     for (i in j <- c("ozone", "pm25avg", "contpm25_all", "latlongs")) {
-        data(list = i, package = "netassess")
+        data(list = i, package = "netassess", envir = environment())
         setWinProgressBar(pb, grep(i, j)/length(j))
     }
     Sys.sleep(2)

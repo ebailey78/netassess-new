@@ -1,19 +1,13 @@
 newsites <- function() 
 {
     options(warn = -1)
-    require(sp)
-    require(maptools)
-    require(rgdal)
-    require(maps)
-    require(tkrplot)
-    require(fgui)
-    require(plotrix)
+
     pb <- winProgressBar(title = "New Sites Tool Starting Up", 
         min = 0, max = 1, width = 500, label = "Loading data. Please wait")
     for (i in j <- c("o3.pair.summ", "pm25.3day.pair.summ", "pm25.6day.pair.summ", 
         "contpm25.pair.summ", "latlongs", "ozone.dvs", "pm25.dvd", 
         "pm25.dva", "contpm25.dvd", "contpm25.dva")) {
-        data(list = i, package = "netassess")
+        data(list = i, package = "netassess", envir = environment())
         setWinProgressBar(pb, grep(i, j)/length(j))
     }
     Sys.sleep(2)

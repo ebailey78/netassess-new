@@ -7,3 +7,6 @@ Author: Who wrote it
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Description: More about what it does (maybe more than one line)
 License: GPL
+Depends: R (>= 2.10)
+Imports: maps, sp, rgdal, maptools, tcltk, fgui, deldir, gpclib, 
+         sqldf, tkrplot, plotrix, Hmisc, ellipse

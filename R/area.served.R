@@ -1,17 +1,10 @@
 area.served <- function() 
 {
-    require(deldir)
-    require(sp)
-    require(maptools)
-    require(maps)
-    require(rgdal)
-    require(gpclib)
-    require(fgui)
-    require(tcltk)
+
     pb <- winProgressBar(title = "Area Served Tool Starting Up", 
         min = 0, max = 1, width = 500, label = "Loading data. Please wait")
     for (i in j <- c("census_00_centroids", "census_08")) {
-        data(list = i, package = "netassess")
+        data(list = i, package = "netassess", envir = environment())
         setWinProgressBar(pb, grep(i, j)/length(j))
     }
     Sys.sleep(2)

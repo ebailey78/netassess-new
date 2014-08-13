@@ -1,18 +1,12 @@
 rembias <- function() 
 {
     options(warn = -1)
-    require(sp)
-    require(deldir)
-    require(rgdal)
-    require(maptools)
-    require(fgui)
-    require(tcltk)
-    require(sqldf)
+
     pb <- winProgressBar(title = "Removal Bias Tool Starting Up", 
         min = 0, max = 1, width = 500, label = "Loading data. Please wait")
     for (i in j <- c("ozone", "pm25avg", "contpm25_all", "latlongs", 
         "o3dvs", "pm25dvs", "contpm25dvs", "addresses")) {
-        data(list = i, package = "netassess")
+        data(list = i, package = "netassess", envir = environment())
         setWinProgressBar(pb, grep(i, j)/length(j))
     }
     Sys.sleep(2)
@@ -190,10 +184,10 @@ rembias <- function()
                 sep = ""), row.names = FALSE)
         kml <- file(paste(dname, "/", tclvalue(fname$object), 
             ".kml", sep = ""), open = "w")
-        scale_file <- "rembias_pm25_scale.png"
+        scale_file <- "img/rembias_pm25_scale.png"
         if (grepl("ozone", varin)) {
             parm <- "Ozone"
-            scale_file <- "rembias_o3_scale.png"
+            scale_file <- "img/rembias_o3_scale.png"
         }
         else if (grepl("pm25frm", varin)) {
             parm <- "PM2.5 (FRM)"
