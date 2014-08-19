@@ -10,3 +10,5 @@ For some reason, one of the packages required by netassess does not come in bina
 You can then install netassess-new from github with the following command:
 
 ```devtools::install_github("netassess-new", "ebailey78")```
+
+If these instructions don't work you can contact me at ebailey@idem.in.gov.
